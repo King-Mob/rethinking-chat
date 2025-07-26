@@ -1,6 +1,5 @@
 import { StrictMode, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
 import App from "./App.tsx";
 import { getEvents } from "./requests.ts";
 import type { matrixEvent, user } from "./types.ts";
