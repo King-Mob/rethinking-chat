@@ -39,10 +39,6 @@ function UserHeader({ user, setUser }: { user: user | undefined; setUser: (user:
         } else {
             const registration = await postRegister(username, password);
             if (registration.access_token) {
-                setUser({
-                    name: username,
-                    access_token: registration.access_token,
-                });
                 localStorage.setItem(
                     "rethinkingchat.login.details",
                     JSON.stringify({
@@ -50,7 +46,11 @@ function UserHeader({ user, setUser }: { user: user | undefined; setUser: (user:
                         access_token: registration.access_token,
                     })
                 );
-                joinRoom(registration.access_token);
+                await joinRoom(registration.access_token);
+                setUser({
+                    name: username,
+                    access_token: registration.access_token,
+                });
             }
         }
     }

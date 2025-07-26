@@ -97,7 +97,7 @@ export const postRegister = async (username: string, password: string) => {
         method: "POST",
         body: JSON.stringify({
             device_id: "web-client" + Math.random(),
-            initial_device_display_name: "Booking website",
+            initial_device_display_name: "rethinking_website",
             password: password,
             username: username,
             auth: {
