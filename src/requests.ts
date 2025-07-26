@@ -5,12 +5,8 @@ const { VITE_HOMESERVER, VITE_ROOM_ID, VITE_REGISTRATION_TOKEN } = import.meta.e
 const roomId = VITE_ROOM_ID;
 
 export const getEvents = async (user: user) => {
-    const url = `${VITE_HOMESERVER}/_matrix/client/v3/rooms/${roomId}/messages?limit=10000&dir=f`
-
-    console.log(url)
-
     const eventsResponse = await fetch(
-        url,
+        `${VITE_HOMESERVER}/_matrix/client/v3/rooms/${roomId}/messages?limit=10000&dir=f`,
         {
             method: "GET",
             headers: {
