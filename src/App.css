@@ -136,3 +136,7 @@ button:focus-visible {
     width: 100%;
     justify-content: space-between;
 }
+
+#message-input {
+    flex-grow: 1;
+}

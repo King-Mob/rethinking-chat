@@ -24,6 +24,7 @@ function App({ user, events, loadEvents }: { user: user | undefined; events: mat
             {user && (
                 <div id="send-container">
                     <input
+                        id="message-input"
                         type="text"
                         placeholder="new message"
                         value={newMessage}
