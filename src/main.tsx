@@ -8,9 +8,7 @@ import UserHeader from "./UserHeader.tsx";
 const { VITE_ROOM_ID } = import.meta.env;
 
 function Main() {
-    const [events, setEvents] = useState<matrixEvent[]>([
-        { type: "dummy ", event_id: "123", content: {}, sender: "none" },
-    ]);
+    const [events, setEvents] = useState<matrixEvent[]>([]);
     const [user, setUser] = useState<user>();
 
     function loadUser() {
