@@ -9,7 +9,8 @@ function App({ user, events }: { user: user | undefined; events: matrixEvent[] }
 
     async function sendMessage() {
         if (user && newMessage) {
-            await postMessage(newMessage, user.access_token);
+            postMessage(newMessage, user.access_token);
+            setNewMessage("");
         }
     }
 
