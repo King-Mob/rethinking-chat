@@ -64,7 +64,7 @@ function UserHeader({ user, setUser }: { user: user | undefined; setUser: (user:
 
     return (
         <>
-            <div className="login-container">
+            <div id="login-container">
                 {user ? (
                     <>
                         <p className="login-text">Logged in as {user.name}</p>
