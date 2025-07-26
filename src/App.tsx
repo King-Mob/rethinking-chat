@@ -16,7 +16,7 @@ function App({ user, events, loadEvents }: { user: user | undefined; events: mat
 
     return (
         <>
-            <div>
+            <div id="events-container">
                 {events.map((event) => (
                     <Event event={event} />
                 ))}
