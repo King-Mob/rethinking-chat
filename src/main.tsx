@@ -34,6 +34,7 @@ function Main() {
 
     return (
         <StrictMode>
+            <h1>Rethinking Chat</h1>
             <UserHeader user={user} setUser={setUser} />
             <App user={user} events={events} loadEvents={loadEvents} />
         </StrictMode>

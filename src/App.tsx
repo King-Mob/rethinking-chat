@@ -16,7 +16,6 @@ function App({ user, events, loadEvents }: { user: user | undefined; events: mat
 
     return (
         <>
-            <h1>Rethinking Chat</h1>
             <div>
                 {events.map((event) => (
                     <Event event={event} />
