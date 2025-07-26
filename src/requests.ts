@@ -1,22 +1,8 @@
-import { MESSAGE_EVENT, type user } from "./types";
+import { MESSAGE_EVENT } from "./types";
 
 const { VITE_HOMESERVER, VITE_ROOM_ID, VITE_REGISTRATION_TOKEN } = import.meta.env;
 
 const roomId = VITE_ROOM_ID;
-
-export const getEvents = async (user: user) => {
-    const eventsResponse = await fetch(
-        `${VITE_HOMESERVER}/_matrix/client/v3/rooms/${roomId}/messages?limit=10000&dir=f`,
-        {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${user.access_token}`,
-            },
-        }
-    );
-    const events = await eventsResponse.json();
-    return events;
-};
 
 export const postLogin = async (username: string, password: string) => {
     const loginResponse = await fetch(`${VITE_HOMESERVER}/_matrix/client/v3/login`, {
@@ -139,3 +125,14 @@ export const getImage = async (access_token: string, mxc: string) => {
         },
     });
 };
+
+export const getSync = async (access_token: string, batch: string | null) => {
+    const syncResponse = await fetch(`${VITE_HOMESERVER}/_matrix/client/v3/sync?timeout=30000${batch ? `&since=${batch}` : ""}`, {
+        headers: {
+            Authorization: `Bearer ${access_token}`,
+        },
+    })
+    const syncResult = await syncResponse.json();
+
+    return syncResult;
+}
