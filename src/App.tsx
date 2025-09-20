@@ -20,7 +20,7 @@ function App({ user, events }: { user: user | undefined; events: matrixEvent[] }
                 {events && events.length > 0 ? (
                     events.map((event) => <Event event={event} key={event.event_id} />)
                 ) : (
-                    <p>Loading events...</p>
+                    user ? <p>Loading events...</p> : <p>Register/Login to see events</p>
                 )}
             </div>
             {user && (
